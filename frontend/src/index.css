@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *), .dark &);
+
+@theme {
+  --color-canvas: #202124;
+  --color-tea-green: #C7F0BD;
+  --color-midnight: #202124;
+  --color-thistle: #3A3D42;
+  --color-amaranth: #C7F0BD;
+  --color-gray-olive: #B8BDC4;
+
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-sans: 'DM Sans', 'Noto Sans Devanagari', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'DM Sans', 'Noto Sans Devanagari', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #F5F5F5;
+}
+
+html.dark {
+  background-color: #202124;
+}
+
+body {
+  margin: 0;
+  background-color: #F5F5F5;
+  color: #202124;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+:focus-visible {
+  outline: 2px solid #202124;
+  outline-offset: 3px;
+}
+
+.dark :focus-visible {
+  outline-color: #C7F0BD;
+}
+
+html.dark body,
+.dark body {
+  background-color: #202124;
+  color: #F5F5F5;
+}
+
+/* Ensure headings in dark mode are crisp light font */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #F5F5F5;
+}
+
+/* Space Grotesk headline utility */
+.font-display {
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom scrollbar matching palette */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #B8BDC4;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C7F0BD;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
