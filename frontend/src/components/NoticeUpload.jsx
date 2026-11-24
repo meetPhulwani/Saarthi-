@@ -41,7 +41,9 @@ const languages = [
   { id: "marathi", label: "Marathi", nativeLabel: "मराठी" },
 ];
 
-const BACKEND_URL = "http://127.0.0.1:8001";
+const BACKEND_URL = (
+  import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8001"
+).replace(/\/+$/, "");
 const urgencyLabels = {
   overdue: "Overdue",
   due_today: "Due Today",
